@@ -20,6 +20,8 @@ jobs:
           - web-compat
           - bastion
           - phpldapadmin
+          - dovecot
+          - postfix
     steps:
       - uses: actions/checkout@v4
 
