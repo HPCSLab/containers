@@ -1,0 +1,18 @@
+[[prehooks]]
+exec = "/usr/local/bin/ssh_host_keys_gen.sh"
+
+[[services]]
+title = "sshd"
+exec = "/usr/sbin/sshd"
+args = ["-D", "-E", "/dev/stderr"]
+essential = true
+
+[[services]]
+title = "nslcd"
+exec = "/usr/sbin/nslcd"
+args = ["-d"]
+
+[[services]]
+title = "nscd"
+exec = "/usr/sbin/nscd"
+args = ["-d"]
