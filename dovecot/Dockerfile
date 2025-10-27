@@ -5,7 +5,7 @@ ARG DOVECOT_UID=4006
 ARG DOVECOT_GID=4006
 ARG VMAIL_UID=4007
 ARG VMAIL_GID=4007
-RUN apt-get update && apt-get install -qy dovecot-core dovecot-imapd
+RUN apt-get update && apt-get install -qy dovecot-core dovecot-imapd dovecot-pop3d
 
 RUN groupadd -g ${VMAIL_GID} vmail && \
     useradd -u $VMAIL_UID -g vmail -s /bin/false vmail && \
