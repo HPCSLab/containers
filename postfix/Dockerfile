@@ -8,7 +8,7 @@ ARG VMAIL_UID=4007
 ARG VMAIL_GID=4007
 RUN apt-get update && apt-get install -qy postfix
 
-RUN groupadd -g ${VMAIL_GID} vmail && \
+RUN groupadd -g $VMAIL_GID vmail && \
     useradd -u $VMAIL_UID -g vmail -s /bin/false vmail && \
     mkdir /mail && \
     chown -R vmail:vmail /mail
