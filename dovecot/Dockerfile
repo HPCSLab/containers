@@ -12,4 +12,6 @@ RUN groupadd postfix -g $POSTFIX_GID && \
 RUN groupmod dovecot -g ${DOVECOT_GID} && \
     usermod dovecot -u $DOVECOT_UID -g $DOVECOT_GID -s /bin/false
 
+USER dovecot
+
 CMD [ "/usr/sbin/dovecot", "-F" ]
