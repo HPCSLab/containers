@@ -18,4 +18,4 @@ RUN groupadd -g ${DOVECOT_GID} dovecot && \
 RUN groupmod -g ${POSTFIX_GID} postfix && \
     usermod -u ${POSTFIX_UID} -g ${POSTFIX_GID} postfix
 
-CMD [ "/usr/sbin/postfix" "start-fg" ]
+CMD [ "/usr/sbin/postfix", "start-fg" ]
