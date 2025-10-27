@@ -5,13 +5,16 @@ ARG DOVECOT_UID=4006
 ARG DOVECOT_GID=4006
 RUN apt-get update && apt-get install -qy dovecot-core dovecot-imapd
 
+RUN groupadd -g ${VMAIL_GID} vmail && \
+    useradd -u $VMAIL_UID -g vmail -s /bin/false vmail && \
+    mkdir /mail && \
+    chown -R vmail:vmail /mail
+
 RUN groupadd postfix -g $POSTFIX_GID && \
     useradd postfix -u ${POSTFIX_UID} -g postfix -s /bin/false && \
     gpasswd -a mail postfix
 
 RUN groupmod dovecot -g ${DOVECOT_GID} && \
     usermod dovecot -u $DOVECOT_UID -g $DOVECOT_GID -s /bin/false
-
-USER dovecot
 
 CMD [ "/usr/sbin/dovecot", "-F" ]
