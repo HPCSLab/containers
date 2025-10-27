@@ -7,6 +7,5 @@ ARG DOVECOT_GID=4006
 RUN apt-get update && apt-get install -qy postfix dovecot-core dovecot-imapd
 RUN useradd -u $POSTFIX_UID -g $POSTFIX_GID -s /bin/false postfix
 RUN useradd -u $DOVECOT_UID -g $DOVECOT_GID -s /bin/false dovecot
-USER postfix
 
 CMD [ "/usr/sbin/postfix" "start-fg" ]
