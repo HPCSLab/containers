@@ -15,6 +15,7 @@ RUN apt-get update && \
     netcat-openbsd \
     unzip \
     subversion \
+    curl \
     less
 
 RUN wget https://github.com/namachan10777/whaleinit/releases/download/v0.0.4/whaleinit-$(uname -m)-linux-musl -O /whaleinit && \
