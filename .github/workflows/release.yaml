@@ -22,6 +22,7 @@ jobs:
           - phpldapadmin
           - dovecot
           - postfix
+          - opendkim
     steps:
       - uses: actions/checkout@v4
 
