@@ -9,7 +9,5 @@ RUN groupmod -g ${OPENDKIM_GID} opendkim && \
     usermod -u ${OPENDKIM_UID} -g ${OPENDKIM_GID} opendkim
 RUN groupadd -g ${POSTFIX_GID} postfix && gpasswd -a opendkim postfix
 
-RUN wget https://github.com/namachan10777/whaleinit/releases/download/v0.0.4/whaleinit-$(uname -m)-linux-musl -O /whaleinit && \
-    chmod 755 /whaleinit
-
-ENTRYPOINT ["/whaleinit"]
+ENTRYPOINT ["/usr/sbin/opendkim"]
+CMD ["-f", "-x", "/etc/opendkim/opendkim.conf"]
