@@ -1,0 +1,10 @@
+[[services]]
+title = "opendkim"
+exec = "/usr/sbin/opendkim"
+args = ["-f", "-x", "/etc/opendkim/opendkim.conf", "-d", "all"]
+essential = true
+
+[[services]]
+title = "rsyslogd"
+exec = "/usr/sbin/rsyslogd"
+args = ["-n"]
