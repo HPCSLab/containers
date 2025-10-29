@@ -23,6 +23,7 @@ jobs:
           - dovecot
           - postfix
           - opendkim
+          - postsrsd
     steps:
       - uses: actions/checkout@v4
 
