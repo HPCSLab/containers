@@ -29,7 +29,7 @@ RUN useradd -M -d /local/home/rescue -G sudo rescue
 COPY authorized_keys_gen.sh .
 RUN bash authorized_keys_gen.sh && mv authorized_keys /local/home/rescue/.ssh/authorized_keys
 COPY ssh_host_keys_gen.sh /usr/local/bin/ssh_host_keys_gen.sh
-RUN chown -R rescue:rescue /local/home/rescue/.ssh
+RUN chown -R rescue:rescue /local/home/rescue
 RUN chmod 700 /local/home/rescue/.ssh && chmod 600 /local/home/rescue/.ssh/authorized_keys
 RUN mkdir -p /run/sshd
 RUN echo 'work' > /etc/hostname
